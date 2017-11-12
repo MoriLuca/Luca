@@ -64,7 +64,7 @@ namespace Utility.DB
 
         }
 
-        //lettura di una lista
+        //lettura di una lista di nomi
         public bool ReadNomi(out List<DBTest.nomi> list)
         {
 
@@ -90,7 +90,7 @@ namespace Utility.DB
             }
         }
 
-        //scrittura di un nuovo record
+        //scrittura di un nuovo record nome
         public bool WriteOneName(string name)
         {
             lock (_lock)
