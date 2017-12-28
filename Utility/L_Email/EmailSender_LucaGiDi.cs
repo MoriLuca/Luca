@@ -5,27 +5,48 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Net.Mail;
 using System.Net;
+using System.Threading;
 
 namespace L_Email
 {
     public class EmailSender_LucaGiDi
     {
-
+        private object locker = new object();
         private MailMessage mailMessage;
-
-        public void SendEmail()
+        public enum emailAccount
         {
-            var client = new SmtpClient("smtp.gmail.com", 587)
+            LucaGiDiAutomazione,
+            LucaGoogleMail
+        }
+
+        public void SendEmail(string _emailTo, string _object, string _body, bool _isHtml, string _emailFrom = "luca.mori@gidiautomazione.it")
+        {
+            new Thread(() => EmailWriter
+                (
+                    _emailTo: _emailTo,
+                    _object: _object,
+                    _body: _body,
+                    _isHtml: _isHtml,
+                    _emailFrom: _emailFrom
+                ))
+                .Start();
+        }
+
+        private void EmailWriter(string _emailTo, string _object, string _body, bool _isHtml, string _emailFrom = "luca.mori@gidiautomazione.it")
+        {
+            lock (locker)
             {
-                Credentials = new NetworkCredential("wmoriluca@gmail.com", "000Benvenuto"),
-                EnableSsl = true,
-            };
-            mailMessage = new MailMessage("lucam@gidiautomazione.it", "lucam@gidiautomazione.it","s","sd");
-            mailMessage.IsBodyHtml = true;
-            client.Send(mailMessage);
-            client.Dispose();
-            mailMessage.Dispose();
-            Console.Read();
+                var client = new SmtpClient("authsmtp.register.it", 587)
+                {
+                    Credentials = new NetworkCredential("luca.mori@gidiautomazione.it", "000BenvenutoWork"),
+                    EnableSsl = false,
+                };
+                mailMessage = new MailMessage(_emailFrom, _emailTo, _object, _body);
+                mailMessage.IsBodyHtml = _isHtml;
+                client.Send(mailMessage);
+                client.Dispose();
+                mailMessage.Dispose();
+            }
         }
     }
 }

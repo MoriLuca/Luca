@@ -5,27 +5,45 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Net.Mail;
 using System.Net;
+using System.Threading;
 
 namespace L_Email
 {
     public class EmailSender_LucaGmail
     {
-
+        private object locker = new object();
         private MailMessage mailMessage;
 
-        public void SendEmail()
+        public void SendEmail(string _emailTo, string _object, string _body, bool _isHtml, string _emailFrom = "wmoriluca@gmail.com")
         {
-            var client = new SmtpClient("smtp.gmail.com", 587)
-            {
-                Credentials = new NetworkCredential("wmoriluca@gmail.com", "000Benvenuto"),
-                EnableSsl = true,
-            };
-            mailMessage = new MailMessage("lucam@gidiautomazione.it", "lucam@gidiautomazione.it","s","sd");
-            mailMessage.IsBodyHtml = true;
-            client.Send(mailMessage);
-            client.Dispose();
-            mailMessage.Dispose();
-            Console.Read();
+            new Thread(() => EmailWriter
+                (
+                    _emailTo: _emailTo,
+                    _object: _object,
+                    _body: _body,
+                    _isHtml: _isHtml,
+                    _emailFrom: _emailFrom
+                ))
+                .Start();
         }
+
+        private void EmailWriter(string _emailTo, string _object, string _body, bool _isHtml, string _emailFrom = "luca.mori@gidiautomazione.it")
+        {
+            lock (locker)
+            {
+                var client = new SmtpClient("authsmtp.register.it", 587)
+                {
+                    Credentials = new NetworkCredential("luca.mori@gidiautomazione.it", "000BenvenutoWork"),
+                    EnableSsl = false,
+                };
+                mailMessage = new MailMessage(_emailFrom, _emailTo, _object, _body);
+                mailMessage.IsBodyHtml = _isHtml;
+                client.Send(mailMessage);
+                client.Dispose();
+                mailMessage.Dispose();
+            }
+        }
+
+
     }
 }
