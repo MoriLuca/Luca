@@ -35,6 +35,9 @@
     <Reference Include="L_Email">
       <HintPath>..\L_Email\bin\Debug\L_Email.dll</HintPath>
     </Reference>
+    <Reference Include="Sharp7Siemens">
+      <HintPath>..\Sharp7Siemens\bin\Debug\Sharp7Siemens.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
