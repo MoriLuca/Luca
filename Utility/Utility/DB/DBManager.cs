@@ -90,7 +90,7 @@ namespace Utility.DB
             }
         }
 
-        //scrittura di un nuovo record nome
+        //scrittura di un nuovo record 
         public bool WriteOneName(string name)
         {
             lock (_lock)
