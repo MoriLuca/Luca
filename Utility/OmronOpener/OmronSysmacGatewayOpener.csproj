@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{CB862264-2AE5-4E06-A54C-1FA57BED1EAF}</ProjectGuid>
-    <OutputType>Exe</OutputType>
-    <RootNamespace>MainTest</RootNamespace>
-    <AssemblyName>MainTest</AssemblyName>
+    <ProjectGuid>{49B9A697-F150-4EC2-B2D8-D640315B6930}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>OmronOpener</RootNamespace>
+    <AssemblyName>OmronOpener</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -32,27 +32,58 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="L_Email">
-      <HintPath>..\L_Email\bin\Debug\L_Email.dll</HintPath>
+    <Reference Include="CIPPortCompolet, Version=1.7.1.0, Culture=neutral, PublicKeyToken=4708ecb14a494255, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\OMRON\CX-Compolet\assembly\CIPPortCompolet.dll</HintPath>
     </Reference>
-    <Reference Include="Sharp7Siemens">
-      <HintPath>..\Sharp7Siemens\bin\Debug\Sharp7Siemens.dll</HintPath>
+    <Reference Include="SysmacGatewayCompolet, Version=1.7.1.0, Culture=neutral, PublicKeyToken=f3505d5782c23c5d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\OMRON\CX-Compolet\assembly\Sgw.Net1.1\SysmacGatewayCompolet.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
+    <Reference Include="System.ServiceProcess" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ProjectInstaller.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ProjectInstaller.Designer.cs">
+      <DependentUpon>ProjectInstaller.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Service1.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Service1.Designer.cs">
+      <DependentUpon>Service1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ProjectInstaller.resx">
+      <DependentUpon>ProjectInstaller.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Logger\Luca_SystemLogger.csproj">
+      <Project>{7883B4CA-4D4B-4C8E-B275-2A356AC7A9A1}</Project>
+      <Name>Luca_SystemLogger</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
