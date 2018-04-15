@@ -9,7 +9,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Luca_SystemLogger", "Logger
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OmronSysmacGatewayOpener", "OmronOpener\OmronSysmacGatewayOpener.csproj", "{49B9A697-F150-4EC2-B2D8-D640315B6930}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", "{90A617C7-C715-458C-8E43-F159B338AE8D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Test", "Test\Test.csproj", "{90A617C7-C715-458C-8E43-F159B338AE8D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestDotNetFramework", "TestDotNetFramework\TestDotNetFramework.csproj", "{591A945D-A697-41E3-A5A3-4FB51FEBBC6F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfApp", "WpfApp\WpfApp.csproj", "{15A17BCA-67E6-4E2B-BF1D-EA5974A7D846}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +37,14 @@ Global
 		{90A617C7-C715-458C-8E43-F159B338AE8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{90A617C7-C715-458C-8E43-F159B338AE8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{90A617C7-C715-458C-8E43-F159B338AE8D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{591A945D-A697-41E3-A5A3-4FB51FEBBC6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{591A945D-A697-41E3-A5A3-4FB51FEBBC6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{591A945D-A697-41E3-A5A3-4FB51FEBBC6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{591A945D-A697-41E3-A5A3-4FB51FEBBC6F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{15A17BCA-67E6-4E2B-BF1D-EA5974A7D846}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{15A17BCA-67E6-4E2B-BF1D-EA5974A7D846}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{15A17BCA-67E6-4E2B-BF1D-EA5974A7D846}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{15A17BCA-67E6-4E2B-BF1D-EA5974A7D846}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

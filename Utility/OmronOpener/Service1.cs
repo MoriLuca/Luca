@@ -17,13 +17,14 @@ namespace OmronOpener
         OMRON.Compolet.CIP.SgwServiceCompolet s = new OMRON.Compolet.CIP.SgwServiceCompolet();
         OMRON.Compolet.CIP.ServiceStatus status;
         OMRON.Compolet.CIP.CIPPortCompolet p = new OMRON.Compolet.CIP.CIPPortCompolet();
-        Luca.Logger _log;
+        Luca.Logs.Logger _log;
         private bool _serviceOK;
 
         public Service1()
         {
             InitializeComponent();
-            this._log = new Luca.Logger(@"\GiDi_Runner\AutoLoaderSerivice");
+            this._log = new Luca.Logs.Logger();
+            this._log.LogFolder = @"\GiDi_Runner\AutoLoaderSerivice";
         }
 
         protected override void OnStart(string[] args)

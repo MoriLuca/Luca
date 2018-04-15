@@ -121,16 +121,16 @@ namespace Test
     //    }
     
     ///Test Logs
-    class Program
-    {
-        static void Main()
-        {
-            Luca.Logs.Logger log = new Luca.Logs.Logger();
-            log.LogFolder = "TestLucaLogs";
+    //class Program
+    //{
+    //    static void Main()
+    //    {
+    //        Luca.Logs.Logger log = new Luca.Logs.Logger();
+    //        log.LogFolder = "TestLucaLogs";
 
-            log.WriteLog("Ecco il mio promo log");
-            Console.ReadLine();
-        }
-    }
+    //        log.WriteLog("Ecco il mio promo log");
+    //        Console.ReadLine();
+    //    }
+    //}
 
 }
