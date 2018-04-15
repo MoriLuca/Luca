@@ -10,17 +10,17 @@ namespace Luca.Logs
         // Questa path punta alla cartella roaming dell user corrente
         private string _logPath { get; } =
             Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-
+        private string _logFolder;
         //Proprietà che puà essere modificata per poter scrivere logs in cartelle diverse
         public string LogFolder
         {
             get
             {
-                return LogFolder;
+                return _logFolder;
             }
             set
             {
-                LogFolder = _logPath + value.Trim();
+                _logFolder = _logPath +@"\"+ value.Trim();
             }
         }
         #endregion
