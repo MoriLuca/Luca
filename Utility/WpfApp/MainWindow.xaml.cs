@@ -1,19 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Messaging;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace WpfApp
 {
@@ -41,10 +30,10 @@ namespace WpfApp
             Mex mex = (Mex)e.Message.Body;
             this.Dispatcher.Invoke((Action)(() =>
             {
-                pannello.Children.Add(new Button() { Content = mex.intero + " - " + mex.nome });
+                if (mex.intero > 10) pannello.Background = new SolidColorBrush(Colors.Black);
+                else pannello.Background = new SolidColorBrush(Colors.Red);
             }));
             m.BeginReceive();
-
         }
 
 
