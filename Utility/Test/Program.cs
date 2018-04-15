@@ -94,7 +94,7 @@ namespace Test
                 {
                     StartInfo = new ProcessStartInfo
                     {
-                        FileName = "ifconfig",
+                        FileName = "ipconfig",
                         Arguments = null,
                         UseShellExecute = false,
                         RedirectStandardOutput = true,
@@ -113,6 +113,8 @@ namespace Test
                 Console.WriteLine("Errore invio email Produzione : " + ex.Message);
             }
             #endregion
+
+            Console.ReadLine();
 
         }
     }
