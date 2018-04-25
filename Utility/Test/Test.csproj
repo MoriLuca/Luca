@@ -8,6 +8,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Email\Luca_Email.csproj" />
     <ProjectReference Include="..\Logger\Luca_SystemLogger.csproj" />
+    <ProjectReference Include="..\SiemensPLC\Siemens.csproj" />
   </ItemGroup>
 
 </Project>

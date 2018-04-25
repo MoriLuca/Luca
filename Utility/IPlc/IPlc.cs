@@ -3,40 +3,43 @@ using System.Collections.Generic;
 using System.Net;
 using System.Text;
 
-namespace IPlc
+namespace PlcInterface
 {
-    interface IPlc
+    public interface IPlc
     {
+
         #region Properties
         /// <summary>
         /// Return the state of the connection with the PLC
         /// </summary>
-        bool Connecetd { get; set; }
+        bool Connecetd { get; }
 
         /// <summary>
         /// Return where the plc is available for comunication
         /// </summary>
-        bool Available { get; set; }
+        bool Available { get; }
 
         /// <summary>
         /// return the plc name
         /// </summary>
-        string PlcName { get; set; }
+        string PlcName { get; }
 
         /// <summary>
         /// Ip address of the plc
         /// </summary>
-        IPAddress iPAddress { get; set; }
+        IPAddress iPAddress { get; }
 
         /// <summary>
         /// Port for plc comunication, if necessary
         /// </summary>
-        int Port { get; set; }
+        int Port { get; }
+
+        int Slot { get; }
 
         /// <summary>
         /// Plc Node, if necessary, for example for Fins Networks
         /// </summary>
-        int Node { get; set; }
+        int Node { get; }
         #endregion
 
         #region Connect/Disconnect

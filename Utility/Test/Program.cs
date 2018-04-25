@@ -119,7 +119,7 @@ namespace Test
 
     //        }
     //    }
-    
+
     ///Test Logs
     //class Program
     //{
@@ -132,5 +132,15 @@ namespace Test
     //        Console.ReadLine();
     //    }
     //}
+
+    ///Test Siemens
+    class Program
+    {
+        static void Main()
+        {
+            System.Net.IPAddress iPAddress = System.Net.IPAddress.Parse("192.168.250.2");
+            Siemens.PLC _plc = new Siemens.PLC(S7.Net.CpuType.S71200, iPAddress, 0,0);
+        }
+    }
 
 }

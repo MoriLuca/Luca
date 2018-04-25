@@ -11,7 +11,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Include="Sharp7\sharp7-full-1.0.0\src\Sharp7.cs" />
+    <PackageReference Include="S7netplus" Version="0.1.8" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\IPlc\IPlc.csproj" />
   </ItemGroup>
 
 </Project>
